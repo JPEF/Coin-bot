@@ -1,5 +1,4 @@
 ##TODO
-##- implement IM alert when target price is reached. along side of the text to speech
 ##- support for checking the profit of mining, prob throug coinmarketcap api
 ##- automatically get users transaction information from binance
 ##- error handling
@@ -11,6 +10,15 @@ import requests
 import json
 import time
 import cfg
+
+if cfg.telegramBot == True:
+    #requires telegrambot https://github.com/python-telegram-bot/python-telegram-bot
+    import telegram
+    bot = telegram.Bot(token = cfg.telegramToken)
+    from telegram.ext import Updater
+    updater = Updater(token = cfg.telegramToken)
+    dispatcher = updater.dispatcher
+    bot.send_message(chat_id=cfg.chatID, text="Profit bot started!")
 
 
 if cfg.textToSpeech == True:
@@ -40,7 +48,8 @@ while True:
         print("ETH price goal reached!\n")
         if cfg.textToSpeech == True:
             speaker.Speak("ETH price goal reached!")
-
+        if cfg.telegramBot == True:
+            bot.send_message(chat_id=cfg.chatID, text="ETH price goal reached!")
     for coin in cfg.coinsToTrack:
         #Get the price information from Binance
         response = requests.get("https://api.binance.com/api/v3/ticker/price", params=coin)
@@ -67,6 +76,8 @@ while True:
             if cfg.textToSpeech == True:
                 toSay = "Profit goal reached on ", symbol
                 speaker.Speak(toSay)
+            if cfg.telegramBot == True:
+                bot.send_message(chat_id=cfg.chatID, text=toSay)
 
     time.sleep(cfg.howOften)
 

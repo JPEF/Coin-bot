@@ -19,5 +19,14 @@ howOften = 900
 #Text to speech ON = True, OFF = False, currently only supported on Windows and requires the user to install https://github.com/mhammond/pywin32/releases
 textToSpeech = True
 
+#Define here if you want to get notification messages to your telegram
+#Requires installation of https://github.com/python-telegram-bot/python-telegram-bot
+#And creating a bot via https://core.telegram.org/bots#6-botfather
+#Following the guide will give you the token to be used
+#ChatID can be found using this address https://api.telegram.org/bot<BOTTOKENHERE>/getUpdates
+telegramBot = True
+telegramToken = ""
+chatID = 
+
 #This is the value in seconds which the bot will wait if the API rate limit is reached
 apiRateWait = 60
