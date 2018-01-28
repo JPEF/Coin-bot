@@ -1,17 +1,35 @@
+#Binance
+binance = True
 #Add here the coins which profits are to be tracked
 #Example: coinsToTrack = [{"symbol": "VENETH"}, {"symbol": "BNBETH"}]
 coinsToTrack = [{"symbol": ""}]
-
 #Add here the price you paid in ETH per coin
 #Example boughtAt = {"VENETH": 0.0047505967741935, "BNBETH": 0.0146148181818182}
 boughtAt = {"": 0}
+
+#Kucoin
+kucoin = True
+#Add here the coins which profits are to b tracked
+#Example coinsToTrackKucoin = [{"symbol": "KCS-ETH"}]
+coinsToTrackKucoin = [{"symbol": ""}]
+#Add here the price you paid in ETH per coin
+#Example boughtAtKucoin = {"KCS-ETH": 0.0095836426829999}
+boughtAtKucoin = {"": 0}
+
+#Mining
+cmc = True
+#Add here the coins you mine and want to get alerts when specific price is reached according to coinmarketcap.com
+#Example coinsToTrackCmc = ["intensecoin"]
+coinsToTrackCmc = [""]
+#Target price in dollars
+targetPrice = {"": 0}
 
 #Define here your profit goal in percents
 #Default value is 100
 profitGoal = 100
 
 #Define here the ETH price goal (in euros), after which the bot will alert you
-ethPriceGoal = 803.9
+ethPriceGoal = 0
 
 #Define here how often the bot will check the prices (in seconds), default 15 mins
 howOften = 900
